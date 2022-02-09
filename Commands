@@ -1,0 +1,2 @@
+dotnet test --logger "console;verbosity=detailed"
+dotnet run --project .\ExerciseDirectory\ExerciseDirectory.csproj

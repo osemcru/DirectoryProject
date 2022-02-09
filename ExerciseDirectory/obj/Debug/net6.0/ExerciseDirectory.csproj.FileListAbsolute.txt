@@ -1,0 +1,32 @@
+C:\Repositorios\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.exe
+C:\Repositorios\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.deps.json
+C:\Repositorios\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.runtimeconfig.json
+C:\Repositorios\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.dll
+C:\Repositorios\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ref\ExerciseDirectory.dll
+C:\Repositorios\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.pdb
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.csproj.AssemblyReference.cache
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.AssemblyInfoInputs.cache
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.AssemblyInfo.cs
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.csproj.CoreCompileInputs.cache
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.dll
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ref\ExerciseDirectory.dll
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.pdb
+C:\Repositorios\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.genruntimeconfig.cache
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.exe
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.deps.json
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.runtimeconfig.json
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.dll
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ref\ExerciseDirectory.dll
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\ExerciseDirectory.pdb
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.csproj.AssemblyReference.cache
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.AssemblyInfoInputs.cache
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.AssemblyInfo.cs
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.csproj.CoreCompileInputs.cache
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.dll
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ref\ExerciseDirectory.dll
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.pdb
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.genruntimeconfig.cache
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\bin\Debug\net6.0\FluentValidation.dll
+C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory\obj\Debug\net6.0\ExerciseDirectory.csproj.CopyComplete
