@@ -13,21 +13,10 @@ public class UnitTest1
     {
         Contact contact = new Contact(name, landline, cellphone);
         Directory directory = new Directory(3);
-        bool result = directory.addContact(contact);
-        Assert.Equal(true, result);
-    }
-
-    [Theory]
-    [InlineData("Pedro", "754937", "3146095976")]
-    [InlineData("Arnoldo", "757383", "7493783218")]
-    public void addContactRepeat(string name, string landline, string cellphone)
-    {
-        Contact contact = new Contact(name, landline, cellphone);
-        Directory directory = new Directory(3);
         ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
-        bool result = directory.addContact(contact);
-        Assert.Equal(false, result);
+        bool result = directory.isContactExist(contact);
+        Assert.Equal(true, result);
     }
 
     [Fact]
@@ -36,8 +25,10 @@ public class UnitTest1
         Contact contact = new Contact("Teofilo", "45345435", "32342342");
         Contact contact2 = new Contact("Mateo", "45345", "343242342");
         Directory directory = new Directory(1);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
-        bool result = directory.addContact(contact2);
+        directory.addContact(contact2);
+        bool result = directory.isContactExist(contact2);
         Assert.Equal(false, result);
     }
 
@@ -75,8 +66,10 @@ public class UnitTest1
     {
         Contact contact = new Contact(name, landline, cellphone);
         Directory directory3 = new Directory(2);
-        bool result = directory3.listContacts();
-        Assert.Equal(false, result);
+        ContactValidator contactValidator = new ContactValidator(directory3.getQuery());
+        System.Collections.Generic.List<Contact> contactList = directory3.listContacts();
+        int result = contactList.Count;
+        Assert.Equal(0, result);
     }
 
     [Theory]
@@ -86,9 +79,11 @@ public class UnitTest1
     {
         Contact contact = new Contact(name, landline, cellphone);
         Directory directory = new Directory(2);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
-        bool result = directory.listContacts();
-        Assert.Equal(true, result);
+        System.Collections.Generic.List<Contact> contactList = directory.listContacts();
+        int result = contactList.Count;
+        Assert.Equal(1, result);
     }
 
     [Theory]
@@ -99,8 +94,8 @@ public class UnitTest1
         Directory directory = new Directory(2);
         ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
-        bool result = directory.findContact(name);
-        Assert.Equal(true, result);
+        Contact result = directory.findContact(name);
+        Assert.Equal(contact, result);
     }
 
     [Theory]
@@ -109,9 +104,10 @@ public class UnitTest1
     {
         Contact contact = new Contact(name, landline, cellphone);
         Directory directory = new Directory(2);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
-        bool result = directory.findContact("Pacho");
-        Assert.Equal(false, result);
+        Contact result = directory.findContact("Pacho");
+        Assert.Equal(null, result);
     }
 
     [Theory]
@@ -122,8 +118,12 @@ public class UnitTest1
         Directory directory = new Directory(2);
         ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
-        bool result = directory.deleteContact(contact);
-        Assert.Equal(true, result);
+        bool result1 = directory.isContactExist(contact);
+        directory.deleteContact(contact);
+        bool result2 = directory.isContactExist(contact);
+
+        Assert.Equal(true, result1);
+        Assert.Equal(false, result2);
     }
 
     [Theory]
@@ -131,10 +131,15 @@ public class UnitTest1
     public void notDeleteContact(string name, string landline, string cellphone)
     {
         Contact contact = new Contact(name, landline, cellphone);
-        Directory directory2 = new Directory(2);
-        ContactValidator contactValidator = new ContactValidator(directory2.getQuery());
-        bool result = directory2.deleteContact(contact);
-        Assert.Equal(false, result);
+        Contact contact2 = new Contact("lola", "754937", "3146095976");
+        Directory directory = new Directory(2);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
+        directory.addContact(contact);
+        bool result1 = directory.isContactExist(contact);
+        directory.deleteContact(contact2);
+        bool result2 = directory.isContactExist(contact);
+        Assert.Equal(true, result1);
+        Assert.Equal(true, result2);
     }
 
     [Theory]
@@ -143,6 +148,7 @@ public class UnitTest1
     {
         Contact contact = new Contact(name, landline, cellphone);
         Directory directory = new Directory(2);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
         bool result = directory.fullDirectory();
         Assert.Equal(false, result);
@@ -154,6 +160,7 @@ public class UnitTest1
         Contact contact = new Contact("Alfonso", "754937", "3146095976");
         Contact contact2 = new Contact("Rogelio", "75493337", "22254454");
         Directory directory = new Directory(2);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
         directory.addContact(contact2);
         bool result = directory.fullDirectory();
@@ -166,6 +173,7 @@ public class UnitTest1
     {
         Contact contact = new Contact(name, landline, cellphone);
         Directory directory = new Directory(1);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
         byte result = directory.freeSpaces();
         Assert.Equal(0, result);
@@ -176,6 +184,7 @@ public class UnitTest1
     {
         Contact contact = new Contact(name, landline, cellphone);
         Directory directory = new Directory(8);
+        ContactValidator contactValidator = new ContactValidator(directory.getQuery());
         directory.addContact(contact);
         byte result = directory.freeSpaces();
         Assert.Equal(7, result);

@@ -22,7 +22,7 @@ public class Directory
         }
         return query;
     }
-    public bool addContact(Contact contact)
+    public void addContact(Contact contact)
     {
         try
         {
@@ -32,7 +32,10 @@ public class Directory
                 {
                     listContact.Add(contact);
                     message.addContactMessage(contact.nameContact);
-                    return true;
+                }
+                else
+                {
+                    message.notAddContactMessage(contact.nameContact);
                 }
             }
         }
@@ -40,8 +43,6 @@ public class Directory
         {
             message.errorMessage();
         }
-        message.notAddContactMessage(contact.nameContact);
-        return false;
     }
 
     public bool isContactExist(Contact contact)
@@ -63,44 +64,50 @@ public class Directory
         return false;
     }
 
-    public bool listContacts()
+    public List<Contact> listContacts()
     {
         try
         {
             if (listContact.Count() != 0)
             {
                 listContact.ForEach((i) => message.printListContacts(i));
-                return true;
+            }
+            else
+            {
+                message.messageVoidListContacts();
             }
         }
         catch (Exception)
         {
             message.errorMessage();
         }
-        message.messageVoidListContacts();
-        return false;
+        return listContact;
     }
 
-    public bool findContact(string name)
+    public Contact findContact(string name)
     {
+        Contact contactQuery = null;
         try
         {
-            Contact contactQuery = query.consultContact(name);
+            contactQuery = query.consultContact(name);
             if (contactQuery != null)
             {
                 message.ifContactIsFoundMessage(contactQuery.landlineContact);
-                return true;
+                return contactQuery;
+            }
+            else
+            {
+                message.ifContactIsNotFoundMessage();
             }
         }
         catch (Exception)
         {
             message.errorMessage();
         }
-        message.ifContactIsNotFoundMessage();
-        return false;
+        return contactQuery;
     }
 
-    public bool deleteContact(Contact contact)
+    public void deleteContact(Contact contact)
     {
         try
         {
@@ -108,18 +115,17 @@ public class Directory
             if (contactQuery != null)
             {
                 if (listContact.Remove(contactQuery))
-                {
                     message.deleteContactMessage(contactQuery.nameContact);
-                    return true;
-                }
+            }
+            else
+            {
+                message.notDeleteContactMessage(contact.nameContact);
             }
         }
         catch (Exception)
         {
             message.errorMessage();
         }
-        message.notDeleteContactMessage(contact.nameContact);
-        return false;
     }
 
     public bool fullDirectory()
