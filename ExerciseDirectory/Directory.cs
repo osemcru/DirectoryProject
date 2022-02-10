@@ -1,9 +1,11 @@
+using FluentValidation.Results;
 namespace ExerciseDirectory;
 public class Directory
 {
     List<Contact> listContact = new List<Contact>();
     Message message = new Message();
     Query query;
+    nameValidationMultiuseClass nameValidator;
     byte size;
     public Directory(byte size)
     {
@@ -28,14 +30,17 @@ public class Directory
         {
             if (!fullDirectory())
             {
-                if (!isContactExist(contact))
+                ContactValidator contactValidator = new ContactValidator(query);
+                ValidationResult resultValidation = contactValidator.Validate(contact);
+                if (!resultValidation.IsValid)
                 {
-                    listContact.Add(contact);
-                    message.addContactMessage(contact.nameContact);
+                    message.notAddContactMessage(contact.nameContact);
+                    resultValidation.Errors.ForEach((i) => message.contactValidatorMessage(i));
                 }
                 else
                 {
-                    message.notAddContactMessage(contact.nameContact);
+                    listContact.Add(contact);
+                    message.addContactMessage(contact.nameContact);
                 }
             }
         }
@@ -49,18 +54,30 @@ public class Directory
     {
         try
         {
-            Contact contactQuery = query.consultContact(contact.nameContact);
-            if (contactQuery != null)
+            nameValidator = new nameValidationMultiuseClass();
+            ValidationResult resultValidation = nameValidator.Validate(contact);
+            if (!resultValidation.IsValid)
             {
-                message.ifContactExistMessage();
-                return true;
+                resultValidation.Errors.ForEach((i) => message.contactValidatorMessage(i));
+            }
+            else
+            {
+                Contact contactQuery = query.consultContact(contact.nameContact);
+                if (contactQuery != null)
+                {
+                    message.ifContactExistMessage();
+                    return true;
+                }
+                else
+                {
+                    message.ifContactNotExistMessage();
+                }
             }
         }
         catch (Exception)
         {
             message.errorMessage();
         }
-        message.ifContactNotExistMessage();
         return false;
     }
 
@@ -89,15 +106,25 @@ public class Directory
         Contact contactQuery = null;
         try
         {
-            contactQuery = query.consultContact(name);
-            if (contactQuery != null)
+            nameValidator = new nameValidationMultiuseClass();
+            Contact contact = new Contact(name);
+            ValidationResult result = nameValidator.Validate(contact);
+            if (!result.IsValid)
             {
-                message.ifContactIsFoundMessage(contactQuery.landlineContact);
-                return contactQuery;
+                result.Errors.ForEach((i) => message.contactValidatorMessage(i));
             }
             else
             {
-                message.ifContactIsNotFoundMessage();
+                contactQuery = query.consultContact(name);
+                if (contactQuery != null)
+                {
+                    message.ifContactIsFoundMessage(contactQuery.landlineContact);
+                    return contactQuery;
+                }
+                else
+                {
+                    message.ifContactIsNotFoundMessage();
+                }
             }
         }
         catch (Exception)
@@ -111,15 +138,24 @@ public class Directory
     {
         try
         {
-            Contact contactQuery = query.consultContact(contact.nameContact);
-            if (contactQuery != null)
+            nameValidator = new nameValidationMultiuseClass();
+            ValidationResult result = nameValidator.Validate(contact);
+            if (!result.IsValid)
             {
-                if (listContact.Remove(contactQuery))
-                    message.deleteContactMessage(contactQuery.nameContact);
+                result.Errors.ForEach((i) => message.contactValidatorMessage(i));
             }
             else
             {
-                message.notDeleteContactMessage(contact.nameContact);
+                Contact contactQuery = query.consultContact(contact.nameContact);
+                if (contactQuery != null)
+                {
+                    if (listContact.Remove(contactQuery))
+                        message.deleteContactMessage(contactQuery.nameContact);
+                }
+                else
+                {
+                    message.notDeleteContactMessage(contact.nameContact);
+                }
             }
         }
         catch (Exception)
