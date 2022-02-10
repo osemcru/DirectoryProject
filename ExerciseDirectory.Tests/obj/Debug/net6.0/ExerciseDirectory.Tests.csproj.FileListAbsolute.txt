@@ -208,3 +208,4 @@ C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory.Tests\obj\De
 C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory.Tests\obj\Debug\net6.0\ref\ExerciseDirectory.Tests.dll
 C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory.Tests\obj\Debug\net6.0\ExerciseDirectory.Tests.pdb
 C:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory.Tests\obj\Debug\net6.0\ExerciseDirectory.Tests.genruntimeconfig.cache
+c:\Repositorios\Proyectos agenda\DirectoryProject\ExerciseDirectory.Tests\bin\Debug\net6.0\FluentValidation.dll

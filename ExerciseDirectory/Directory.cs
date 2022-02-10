@@ -1,14 +1,26 @@
 namespace ExerciseDirectory;
 public class Directory
 {
-    static List<Contact> listContact = new List<Contact>();
+    List<Contact> listContact = new List<Contact>();
     Message message = new Message();
-    Query query = new Query(listContact);
-    ContactValidator contactValidator = new ContactValidator();
+    Query query;
     byte size;
     public Directory(byte size)
     {
         this.size = size;
+    }
+
+    public Query getQuery()
+    {
+        try
+        {
+            query = new Query(listContact);
+        }
+        catch (Exception)
+        {
+            message.errorMessage();
+        }
+        return query;
     }
     public bool addContact(Contact contact)
     {

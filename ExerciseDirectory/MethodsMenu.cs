@@ -5,7 +5,7 @@ public class MethodsMenu
     byte directorySize;
     Message message = new Message();
     Directory directory;
-    ContactValidator contactValidator = new ContactValidator();
+    ContactValidator contactValidator;
     public Directory consultDirectorySize()
     {
         directorySize = 0;
@@ -17,12 +17,14 @@ public class MethodsMenu
                 if (directorySize > 0 && directorySize <= 10)
                 {
                     directory = new Directory(directorySize);
+                    contactValidator = new ContactValidator(directory.getQuery());
                     return directory;
                 }
+                message.invalidOptionSize();
             }
             catch (Exception)
             {
-                message.errorMessage();
+                message.errorMessageMenu();
             }
         } while (directorySize <= 0 || directorySize > 10);
         return directory;
@@ -45,17 +47,26 @@ public class MethodsMenu
                 }
             }
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            Console.Write(e);
+            message.errorMessage();
         }
     }
     public void isContactExistOption()
     {
         try
         {
+            nameValidationMultiuseClass nameValidator = new nameValidationMultiuseClass();
             Contact contact = new Contact(message.obtainNameContact());
-            directory.isContactExist(contact);
+            ValidationResult result = nameValidator.Validate(contact);
+            if (!result.IsValid)
+            {
+                result.Errors.ForEach((i) => message.contactValidatorMessage(i));
+            }
+            else
+            {
+                directory.isContactExist(contact);
+            }
         }
         catch (Exception)
         {
@@ -88,7 +99,17 @@ public class MethodsMenu
     {
         try
         {
-            directory.findContact(message.obtainNameContact());
+            nameValidationMultiuseClass nameValidator = new nameValidationMultiuseClass();
+            Contact contact = new Contact(message.obtainNameContact());
+            ValidationResult result = nameValidator.Validate(contact);
+            if (!result.IsValid)
+            {
+                result.Errors.ForEach((i) => message.contactValidatorMessage(i));
+            }
+            else
+            {
+                directory.findContact(contact.nameContact);
+            }
         }
         catch (Exception)
         {
@@ -110,8 +131,17 @@ public class MethodsMenu
     {
         try
         {
+            nameValidationMultiuseClass nameValidator = new nameValidationMultiuseClass();
             Contact contact = new Contact(message.obtainNameContact());
-            directory.deleteContact(contact);
+            ValidationResult result = nameValidator.Validate(contact);
+            if (!result.IsValid)
+            {
+                result.Errors.ForEach((i) => message.contactValidatorMessage(i));
+            }
+            else
+            {
+                directory.deleteContact(contact);
+            }
         }
         catch (Exception)
         {

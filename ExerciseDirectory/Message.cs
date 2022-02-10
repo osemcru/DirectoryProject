@@ -20,7 +20,31 @@ public class Message
     {
         try
         {
-            string error = "An error has occurred \n";
+            string error = "An error has occurred with the internal process \n";
+            Console.Write(error);
+        }
+        catch (Exception)
+        {
+            errorMessage();
+        }
+    }
+    public void errorMessageMenu()
+    {
+        try
+        {
+            string error = "An error has occurred, please do not enter negative numbers or letters \n";
+            Console.Write(error);
+        }
+        catch (Exception)
+        {
+            errorMessage();
+        }
+    }
+    public void invalidOptionSize()
+    {
+        try
+        {
+            string error = "this is an invalid option, please enter a number from 1 to 10 for the size of the directory \n";
             Console.Write(error);
         }
         catch (Exception)
@@ -32,7 +56,7 @@ public class Message
     {
         try
         {
-            string error = "this is an invalid option \n";
+            string error = "this is an invalid option, please enter a number from 1 to 8 from those listed \n";
             Console.Write(error);
         }
         catch (Exception)
@@ -155,7 +179,7 @@ public class Message
     {
         try
         {
-            string message = $"Error in {i.PropertyName} {i.ErrorMessage} \n";
+            string message = $"Error, {i.ErrorMessage} \n";
             Console.Write(message);
         }
         catch (Exception)

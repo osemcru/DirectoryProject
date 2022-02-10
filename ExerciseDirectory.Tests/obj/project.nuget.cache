@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "b6sN6QG5ri7no4dK1sK7hExmvLW4tzP1rx9TLG83IZNRL8q1URbQsmz7ug4FLOHDw3o5hXmxL07hpFUvTuNoxQ==",
+  "dgSpecHash": "ieIjaxyyy5p+3JtO2tl62q7jJoWfJmsFJcz/2VYKx/2EjQ4sFbZzfJGVFK5VefUjj1WmkT0DsFbuP4sMfs6Yrg==",
   "success": true,
   "projectFilePath": "C:\\Repositorios\\Proyectos agenda\\DirectoryProject\\ExerciseDirectory.Tests\\ExerciseDirectory.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cacruzs\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
+    "C:\\Users\\cacruzs\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\cacruzs\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",
     "C:\\Users\\cacruzs\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\cacruzs\\.nuget\\packages\\microsoft.net.test.sdk\\16.11.0\\microsoft.net.test.sdk.16.11.0.nupkg.sha512",

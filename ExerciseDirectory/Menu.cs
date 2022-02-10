@@ -51,7 +51,7 @@ public class Menu
             }
             catch (Exception)
             {
-                message.errorMessage();
+                message.errorMessageMenu();
             }
         } while (decision != (byte)options.Exit);
     }
